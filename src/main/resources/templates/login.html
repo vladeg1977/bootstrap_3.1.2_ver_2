@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>Login</title>
+    <script type="text/javascript">
+        function valid(form) {
+            let fail = false;
+            const name = form.j_username.value;
+            const password = form.j_password.value;
+            if (name === "" || name === " ") {
+                fail = "Вы не ввели свой логин";
+            } else if (password === "") {
+                fail = "Вы не ввели свой пароль";
+            }
+            if (fail) {
+                alert(fail);
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="container mx-auto pt-5" style="width:20em">
+    <div>
+        <form action="/login" method="POST" id="form">
+            <div>
+                <h2>Please sign in</h2>
+            </div>
+            <div>
+                <label style="width: 100%">
+                    <input type="text" name="j_username" class="form-control" placeholder="Login"/>
+                </label>
+            </div>
+            <div class="form-label">
+                <label style="width: 100%">
+                    <input type="password" name="j_password" class="form-control" placeholder="Password"/>
+                </label>
+            </div>
+            <input type="submit" class="btn btn-primary" value="Sign in" onclick="valid(document.getElementById('form'))" style="width: 100%"/>
+        </form>
+    </div>
+</div>
+</body>
+</html>
